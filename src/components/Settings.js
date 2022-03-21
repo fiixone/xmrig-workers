@@ -20,7 +20,7 @@ export default class Settings extends React.PureComponent {
     return (
       <div className="container">
         <h2>
-          Settings <button className="btn btn-secondary float-right" onClick={this.export}>Export</button>
+          设置 <button className="btn btn-secondary float-right" onClick={this.export}>导出</button>
         </h2>
         <div className="card bg-light shadow-sm mb-4">
           <div className="card-body">

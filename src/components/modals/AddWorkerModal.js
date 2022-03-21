@@ -41,13 +41,13 @@ export default class AddWorkerModal extends AsyncModal {
     return (
       <LargeModal>
         <Header dismiss={this.props.dismiss}>
-          <Title>Add new worker</Title>
+          <Title>添加新矿工</Title>
         </Header>
         <Body>
 
           <form onSubmit={this.submit}>
             <div className="form-group">
-              <label htmlFor="url">URL</label>
+              <label htmlFor="url">地址</label>
               <input
                 type="url"
                 className="form-control autofocus"
@@ -60,7 +60,7 @@ export default class AddWorkerModal extends AsyncModal {
             </div>
 
             <div className="form-group mb-2">
-              <label htmlFor="token">Access token</label>
+              <label htmlFor="token">访问令牌</label>
               <input
                 type="password"
                 className="form-control"
@@ -80,7 +80,7 @@ export default class AddWorkerModal extends AsyncModal {
           {this.renderError()}
           {this.renderSpinner()}
           <button type="button" className="btn btn-primary" onClick={this.submit} disabled={!this.isReady()}>
-            <Icon icon="plus" /> Add worker
+            <Icon icon="plus" /> 添加矿工
           </button>
           <Cancel dismiss={this.props.dismiss} />
         </Footer>

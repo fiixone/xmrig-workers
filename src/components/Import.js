@@ -23,10 +23,10 @@ export default class Import extends React.PureComponent {
     return (
       <div className="container-fluid">
         <div className="alert alert-warning" role="alert">
-          <Icon icon="exclamation-triangle" className="text-danger" /> All your settings and workers will be replaced.
+          <Icon icon="exclamation-triangle" className="text-danger" /> 所有的设置及矿工将被更改.
         </div>
 
-        <button disabled={!this.isValid()} className="btn btn-primary" onClick={this.apply}>Import</button>
+        <button disabled={!this.isValid()} className="btn btn-primary" onClick={this.apply}>导入</button>
       </div>
     );
   }

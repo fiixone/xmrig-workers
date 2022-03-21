@@ -49,7 +49,6 @@ export default class WorkerRow extends React.PureComponent {
             <span className="badge badge-primary">{!error && summary.kind !== 'miner' ? summary.kind : ''}</span>{' '}
             <span className="badge badge-info">{version}</span>{' '}
             <span className="badge badge-dark">{!error ? summary.algo : ''}</span>{' '}
-            <small className="text-muted">{url.replace('http://', '')}</small>
           </div>
         </td>
         {WorkerRow.renderHashrate(summary, status)}
@@ -73,7 +72,7 @@ export default class WorkerRow extends React.PureComponent {
           {WorkerRow.renderSingleHashrate('10s', hashrate.total[0])}
           {WorkerRow.renderSingleHashrate('1m', hashrate.total[1])}
           {WorkerRow.renderSingleHashrate('15m', hashrate.total[2])}
-          {WorkerRow.renderSingleHashrate('highest', hashrate.highest, 'secondary')}
+          {WorkerRow.renderSingleHashrate('最高', hashrate.highest, 'secondary')}
         </div>
       </td>
     );
@@ -111,11 +110,11 @@ export default class WorkerRow extends React.PureComponent {
       <td style={{lineHeight: 1.3}}>
         <div className="d-flex flex-wrap text-monospace">
           <div className="pr-2">
-            <small className="text-muted">count</small><br /><span className={`badge badge-${good ? 'success' : 'info'}`}>{good}</span>/
+            <small className="text-muted">总计</small><br /><span className={`badge badge-${good ? 'success' : 'info'}`}>{good}</span>/
             <span className={`badge badge-${bad ? 'danger' : 'success'}`}>{bad}</span>
           </div>
           <div>
-            <small className="text-muted">avg time</small><br /><AvgTime value={results.avg_time} />
+            <small className="text-muted">平均耗时</small><br /><AvgTime value={results.avg_time} />
           </div>
         </div>
       </td>
@@ -134,7 +133,7 @@ export default class WorkerRow extends React.PureComponent {
       <td style={{lineHeight: 1.3}}>
         <b>{pool}</b><br />
         {tls ? <span className="badge badge-success">{tls}</span> : ''}{' '}
-        <small className="text-muted">diff</small> <span className="badge badge-info">{summary.results.diff_current}</span>
+        <small className="text-muted">难度</small> <span className="badge badge-info">{summary.results.diff_current}</span>
       </td>
     );
   }

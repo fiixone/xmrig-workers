@@ -20,16 +20,16 @@ export default class ExportModal extends AsyncModal {
     return (
       <LargeModal>
         <Header dismiss={this.props.dismiss}>
-          <Title>Export settings and workers</Title>
+          <Title>导出设置及矿工</Title>
         </Header>
         <div className="alert alert-warning rounded-0 mb-0">
-          Copy url below and open it on another browser to import.
+          复制下面的网址并在另一个浏览器上打开导入它.
         </div>
         <Body>
           <pre id="url">{window.location.origin}/import/{v1.serialize()}</pre>
         </Body>
         <Footer>
-          <ClipboardButton button-title="Copy" className="btn btn-success" data-clipboard-target="#url" onSuccess={this.onCopied}><span><Icon icon="copy" /> Copy & Close</span></ClipboardButton>
+          <ClipboardButton button-title="Copy" className="btn btn-success" data-clipboard-target="#url" onSuccess={this.onCopied}><span><Icon icon="copy" /> 复制 & 关闭</span></ClipboardButton>
           <Cancel dismiss={this.props.dismiss} />
         </Footer>
       </LargeModal>

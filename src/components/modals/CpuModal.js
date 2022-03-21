@@ -23,7 +23,7 @@ export default class CpuModal extends AsyncModal {
           <table className="table table-hover table-sm mb-0">
             <tbody>
               <tr>
-                <td className="border-top-0 text-muted pl-3" style={{width: 120}}>features</td>
+                <td className="border-top-0 text-muted pl-3" style={{width: 120}}>特性</td>
                 <td className="border-top-0" colSpan={3}>
                   {CpuModal.renderFeature(this.props.x64, 'x64')}{' '}
                   {CpuModal.renderFeature(this.props.aes, 'AES')}{' '}
@@ -31,22 +31,22 @@ export default class CpuModal extends AsyncModal {
                 </td>
               </tr>
               <tr>
-                <td className="text-muted pl-3" style={{width: 120}}>cache</td>
+                <td className="text-muted pl-3" style={{width: 120}}>缓存</td>
                 <td colSpan={3}>
                   <span className="text-muted">L2</span> <span className="badge badge-info">{(this.props.l2 / 1048576).toFixed(1)} MB</span>{' '}
                   <span className="text-muted">L3</span> <span className="badge badge-info">{(this.props.l3 / 1048576).toFixed(1)} MB</span>
                 </td>
               </tr>
               <tr>
-                <td className="text-muted pl-3" style={{width: 120}}>cores</td>
+                <td className="text-muted pl-3" style={{width: 120}}>核心</td>
                 <td><span className="badge badge-dark">{this.props.cores}</span></td>
-                <td className="text-muted pl-3" style={{width: 120}}>threads</td>
+                <td className="text-muted pl-3" style={{width: 120}}>线程</td>
                 <td><span className="badge badge-dark">{this.props.threads}</span></td>
               </tr>
               <tr>
                 <td className="text-muted pl-3" style={{width: 120}}>packages</td>
                 <td><span className="badge badge-info">{this.props.packages}</span></td>
-                <td className="text-muted pl-3" style={{width: 120}}>NUMA nodes</td>
+                <td className="text-muted pl-3" style={{width: 120}}>NUMA节点</td>
                 <td>{CpuModal.renderNuma(this.props.nodes)}</td>
               </tr>
               <tr>

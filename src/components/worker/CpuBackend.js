@@ -77,33 +77,33 @@ export default class CpuBackend extends React.PureComponent {
           CPU
 
           <div className="btn-group float-right">
-            <button className="btn btn-outline-primary" onClick={this.props.onRefresh} title="Refresh"><Icon icon="sync-alt" /></button>
+            <button className="btn btn-outline-primary" onClick={this.props.onRefresh} title="刷新"><Icon icon="sync-alt" /></button>
           </div>
           {renderHashrate(cpu.hashrate)}
         </h5>
         <div className="card-body d-flex flex-wrap">
           <div className="mr-4">
-            <span className="text-muted">profile</span><br />
+            <span className="text-muted">概述</span><br />
             <span className="badge badge-primary">{cpu.profile}</span> <span className="badge badge-dark">{cpu.algo}</span>
           </div>
           <div className="mr-4">
-            <span className="text-muted">huge pages</span><br />
+            <span className="text-muted">大内存页面</span><br />
             {renderHugePages(cpu.hugepages[0], cpu.hugepages[1])}
           </div>
           <div className="mr-4">
-            <span className="text-muted">memory</span><br />
+            <span className="text-muted">内存</span><br />
             <b className="text-info">{cpu.memory / 1024} KB</b>
           </div>
           <div className="mr-4">
-            <span className="text-muted">aes</span><br />
+            <span className="text-muted">AES</span><br />
             {cpu['hw-aes'] ? <span className="text-success"><Icon icon="check-circle" /></span> : <span className="text-danger"><Icon icon="times-circle" /></span>}
           </div>
           <div className="mr-4">
-            <span className="text-muted">asm</span><br />
+            <span className="text-muted">ASM</span><br />
             {cpu.asm ? <b className="text-success">{cpu.asm}</b> : <span className="text-danger"><Icon icon="times-circle" /></span>}
           </div>
           <div className="mr-4">
-            <span className="text-muted">priority</span><br />
+            <span className="text-muted">进程优先级</span><br />
             {getPriority(cpu.priority)}
           </div>
         </div>

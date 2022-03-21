@@ -17,7 +17,7 @@ export default class OclPlatformModal extends AsyncModal {
     return (
       <Modal>
         <Header dismiss={this.props.dismiss}>
-          <Title>OpenCL platform</Title>
+          <Title>OpenCL 平台</Title>
         </Header>
         <div className="modal-body p-0">
           <table className="table table-hover table-sm mb-0">

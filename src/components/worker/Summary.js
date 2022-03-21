@@ -28,10 +28,10 @@ export default class Summary extends React.PureComponent {
       <div>
         <div className={cn('card', 'mb-3', { 'border-danger': !ok })}>
           <h5 className={cn('card-header', { 'text-white': !ok }, { 'bg-danger': !ok })}>
-            Worker {ok && summary.kind !== 'miner' ? <span className="badge badge-primary">{summary.kind}</span> : ''}
+            矿工 {ok && summary.kind !== 'miner' ? <span className="badge badge-primary">{summary.kind}</span> : ''}
             <div className="btn-group float-right">
-              <Link className={cn('btn', { 'btn-primary': !ok }, { 'btn-outline-primary': ok})} to={'/worker/edit?url=' + encodeURIComponent(this.props.url)} title="Edit worker"><Icon icon="pen" /></Link>
-              <button className={cn('btn', { 'btn-primary': !ok }, { 'btn-outline-primary': ok})} onClick={this.handleRefresh} title="Refresh"><Icon icon="sync-alt" /></button>
+              <Link className={cn('btn', { 'btn-primary': !ok }, { 'btn-outline-primary': ok})} to={'/worker/edit?url=' + encodeURIComponent(this.props.url)} title="编辑矿工信息"><Icon icon="pen" /></Link>
+              <button className={cn('btn', { 'btn-primary': !ok }, { 'btn-outline-primary': ok})} onClick={this.handleRefresh} title="刷新"><Icon icon="sync-alt" /></button>
             </div>
           </h5>
           {this.renderFields(summary)}
@@ -48,7 +48,7 @@ export default class Summary extends React.PureComponent {
     if (!summary || summary.status !== 200) {
       return (
         <div className="card-body text-danger">
-          <Icon icon="exclamation-triangle" /> Failed to fetch summary information.
+          <Icon icon="exclamation-triangle" /> 无法获取摘要信息.
         </div>
       );
     }
@@ -60,7 +60,7 @@ export default class Summary extends React.PureComponent {
         <table className="table table-hover mb-0">
           <tbody>
             <tr>
-              <td className="border-top-0 text-muted" style={{width: 120}}>Version</td>
+              <td className="border-top-0 text-muted" style={{width: 120}}>版本</td>
               <td className="border-top-0 font-weight-bold">
                 <span className="badge badge-primary">{summary.version}</span>{' '}
                 {Summary.renderX64(cpu)}{' '}
@@ -69,9 +69,9 @@ export default class Summary extends React.PureComponent {
             </tr>
             {this.renderCPU(cpu)}
             {Summary.renderUptime(uptime)}
-            <tr className={cn({'table-danger': donate_level < 1})}>
-              <td className={`text-${donate_level >= 1 ? 'muted' : 'danger'}`}>Donate</td>
-              <td className={`text-${donate_level >= 1 ? 'success' : 'danger'}`}>{donate_level}%</td>
+            <tr className={cn({'table-danger': donate_level < 0})}>
+              <td className={`text-${donate_level <= 0 ? 'muted' : 'danger'}`}>捐献</td>
+              <td className={`text-${donate_level <= 0 ? 'success' : 'danger'}`}>{donate_level}%</td>
             </tr>
           </tbody>
         </table>
@@ -112,30 +112,30 @@ export default class Summary extends React.PureComponent {
     return (
       <div className={cn('card', 'mb-3', { 'border-danger': error })}>
         <h5 className={cn('card-header', { 'text-white': error }, { 'bg-danger': error })}>
-          Mining
+          挖矿
           <div className="btn-group float-right">
-            <Link className={cn('btn', { 'btn btn-outline-light': error}, { 'btn-outline-primary': !error })} to={'/worker/backends?url=' + encodeURIComponent(url)} title="Backends"><Icon icon="microchip" /></Link>
+            <Link className={cn('btn', { 'btn btn-outline-light': error}, { 'btn-outline-primary': !error })} to={'/worker/backends?url=' + encodeURIComponent(url)} title="后端"><Icon icon="microchip" /></Link>
           </div>
         </h5>
         <div className="table-responsive">
           <table className="table table-hover mb-0">
             <tbody>
               <tr>
-                <td className="border-top-0 text-muted" style={{width: 120}}>Hashrate</td>
+                <td className="border-top-0 text-muted" style={{width: 120}}>算力(H/s)</td>
                 <td className="border-top-0">
                   <small className="text-muted">10s</small> <Hashrate value={hashrate.total[0]} />{' '}
                   <small className="text-muted">1m</small> <Hashrate value={hashrate.total[1]} />{' '}
                   <small className="text-muted">15m</small> <Hashrate value={hashrate.total[2]} />{' '}
-                  <small className="text-muted">highest</small> <Hashrate value={hashrate.highest} type="secondary" />
+                  <small className="text-muted">最高</small> <Hashrate value={hashrate.highest} type="secondary" />
                 </td>
               </tr>
               <tr>
-                <td className="text-muted">Results</td>
+                <td className="text-muted">统计</td>
                 <td>
-                  <small className="text-muted">accepted</small> <span className={`badge badge-${good ? 'success' : 'info'}`}>{good}</span>{' '}
-                  <small className="text-muted">rejected</small> <span className={`badge badge-${bad ? 'danger' : 'success'}`}>{bad}</span>{' '}
-                  <small className="text-muted">avg time</small> <AvgTime value={results.avg_time} />{' '}
-                  <small className="text-muted">hashes total</small> <span className="badge badge-info">{results.hashes_total}</span>{' '}
+                  <small className="text-muted">接受</small> <span className={`badge badge-${good ? 'success' : 'info'}`}>{good}</span>{' '}
+                  <small className="text-muted">拒绝</small> <span className={`badge badge-${bad ? 'danger' : 'success'}`}>{bad}</span>{' '}
+                  <small className="text-muted">平均耗时</small> <AvgTime value={results.avg_time} />{' '}
+                  <small className="text-muted">总提交哈希</small> <span className="badge badge-info">{results.hashes_total}</span>{' '}
                 </td>
               </tr>
             </tbody>
@@ -156,19 +156,19 @@ export default class Summary extends React.PureComponent {
     return (
       <div className={cn('card', 'mb-3', { 'border-danger': uptime === 0 })}>
         <h5 className={cn('card-header', { 'text-white': uptime === 0 }, { 'bg-danger': uptime === 0 })}>
-          Connection
+          连接
         </h5>
         <div className="table-responsive">
           <table className="table table-hover mb-0">
             <tbody>
               <tr>
-                <td className="border-top-0 text-muted" style={{width: 120}}>Pool</td>
+                <td className="border-top-0 text-muted" style={{width: 120}}>矿池</td>
                 <td className="border-top-0">
                   <b>{pool}</b>{' '}
                   {tls ? <span className="badge badge-success">{tls}</span> : ''}{' '}
-                  <small className="text-muted">diff</small> <span className="badge badge-info">{summary.results.diff_current}</span>{' '}
-                  <small className="text-muted">algo</small> <span className="badge badge-dark">{summary.algo}</span>{' '}
-                  <small className="text-muted">ping</small> <Ping value={ping} />
+                  <small className="text-muted">难度(diff)</small> <span className="badge badge-info">{summary.results.diff_current}</span>{' '}
+                  <small className="text-muted">算法(alog)</small> <span className="badge badge-dark">{summary.algo}</span>{' '}
+                  <small className="text-muted">延迟(ping)</small> <Ping value={ping} />
                 </td>
               </tr>
               {Summary.renderUptime(uptime)}
@@ -187,7 +187,7 @@ export default class Summary extends React.PureComponent {
 
     return (
       <tr>
-        <td className="text-muted">Uptime</td>
+        <td className="text-muted">上线时长</td>
         <td><Uptime value={uptime} /></td>
       </tr>
     );

@@ -15,17 +15,17 @@ export default class Sidebar extends React.PureComponent {
             {this.props.name || 'Worker'}
           </h5>
           <div className="list-group list-group-flush">
-            {this.renderItem('info-circle', '/worker', 'Summary')}
-            {this.renderItem('plug', '/worker/edit', 'Connection')}
-            {this.renderItem('microchip', '/worker/backends', 'Backends')}
-            {this.renderItem('pen', '/worker/config', 'Configuration')}
+            {this.renderItem('info-circle', '/worker', '概要')}
+            {this.renderItem('microchip', '/worker/backends', '后端')}
+            {this.renderItem('plug', '/worker/edit', '连接')}
+            {this.renderItem('pen', '/worker/config', '配置')}
             {/*{this.renderItem('tools', '/worker/tools', 'Tools')}*/}
           </div>
         </div>
 
         <div className="card mb-3" style={{ width: '16rem' }}>
           <div className="list-group list-group-flush">
-            {this.renderItem('flask', '/worker/dev', 'Development')}
+            {this.renderItem('flask', '/worker/dev', '开发调试')}
           </div>
         </div>
       </div>

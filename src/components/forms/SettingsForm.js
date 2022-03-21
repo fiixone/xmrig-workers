@@ -9,7 +9,7 @@ export default class SettingsForm extends React.PureComponent {
       <form>
 
         <div className="form-group row mb-0">
-          <label htmlFor="interval" className="col-lg-3 col-form-label">Refresh interval</label>
+          <label htmlFor="interval" className="col-lg-3 col-form-label">刷新间隔</label>
           <div className="col-lg-9">
             <div className="input-group" style={{ maxWidth: 256 }}>
               <input
@@ -21,7 +21,7 @@ export default class SettingsForm extends React.PureComponent {
                 onChange={event => { this.props.update({ interval: +event.target.value }) }}
               />
               <div className="input-group-append">
-                <span className="input-group-text">Seconds</span>
+                <span className="input-group-text">秒</span>
               </div>
             </div>
           </div>

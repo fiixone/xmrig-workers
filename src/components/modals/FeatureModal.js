@@ -18,10 +18,10 @@ export default class FeatureModal extends AsyncModal {
     return (
       <LargeModal>
         <Header dismiss={this.props.dismiss}>
-          <Title>Missing feature</Title>
+          <Title>缺少功能</Title>
         </Header>
         <div className="alert alert-danger rounded-0 mb-0">
-          <Icon icon="exclamation-triangle" className="text-danger" /> Update your miner to recent version to get this feature.
+          <Icon icon="exclamation-triangle" className="text-danger" /> 将您的矿机更新到最新版本以获取此功能.
         </div>
         <Footer>
           <Cancel dismiss={this.props.dismiss} />

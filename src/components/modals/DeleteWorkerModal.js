@@ -18,13 +18,13 @@ export default class DeleteWorkerModal extends AsyncModal {
     return (
       <LargeModal>
         <Header dismiss={this.props.dismiss}>
-          <Title>Delete worker</Title>
+          <Title>删除矿工</Title>
         </Header>
         <div className="alert alert-warning rounded-0 mb-0">
-          <Icon icon="exclamation-triangle" className="text-danger" /> Are you sure you want to delete worker <b>{this.props.name}</b>?
+          <Icon icon="exclamation-triangle" className="text-danger" /> 确定是否删除矿工 <b>{this.props.name}</b>?
         </div>
         <Footer>
-          <button type="button" className="btn btn-danger" onClick={this.handleDelete}><Icon icon="trash-alt" /> Delete worker</button>
+          <button type="button" className="btn btn-danger" onClick={this.handleDelete}><Icon icon="trash-alt" /> 删除矿工</button>
           <Cancel dismiss={this.props.dismiss} />
         </Footer>
       </LargeModal>

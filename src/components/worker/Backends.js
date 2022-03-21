@@ -41,7 +41,7 @@ export default class Backends extends React.PureComponent {
 
   renderBody() {
     if (this.state.error) {
-      return (<div className="alert alert-danger"><Icon icon="exclamation-triangle" /> Backends information is not available.</div>);
+      return (<div className="alert alert-danger"><Icon icon="exclamation-triangle" /> 后端信息不可用.</div>);
     }
 
     if (this.state.progress) {

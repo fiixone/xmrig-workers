@@ -33,9 +33,9 @@ export default class Config extends React.PureComponent {
       <div>
         <div className={cn('card', 'mb-3', { 'border-danger': error })}>
           <h5 className={cn('card-header', { 'text-white': error }, { 'bg-danger': error })}>
-            JSON configuration
-            <button className="btn btn-secondary float-right" onClick={this.handleDownload} disabled={error || progress}><Icon icon="download" /> Download</button>
-            <button className="btn btn-primary float-right mr-2" onClick={this.handleApply} disabled={error || progress}><Icon icon="check" /> Apply</button>
+            JSON 配置
+            <button className="btn btn-secondary float-right" onClick={this.handleDownload} disabled={error || progress}><Icon icon="download" /> 下载</button>
+            <button className="btn btn-primary float-right mr-2" onClick={this.handleApply} disabled={error || progress}><Icon icon="check" /> 应用</button>
           </h5>
           {this.renderBody(isValid)}
         </div>
@@ -89,7 +89,7 @@ export default class Config extends React.PureComponent {
   static renderError() {
     return (
       <div className="card-body text-danger">
-        <Icon icon="exclamation-triangle" /> Remote configuration is not available.
+        <Icon icon="exclamation-triangle" /> 远程配置不可用.
       </div>
     );
   }
@@ -133,10 +133,10 @@ export default class Config extends React.PureComponent {
           throw new Error(res.statusText);
         }
 
-        showSuccess('Configuration successfully applied.');
+        showSuccess('配置应用成功.');
       })
       .catch(err => {
-        showError('Failed to apply configuration.');
+        showError('配置应用失败.');
       });
   };
 

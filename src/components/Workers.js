@@ -28,7 +28,7 @@ export default class Workers extends React.PureComponent {
   renderAlert() {
     return (
       <div className="alert alert-danger" role="alert">
-        <Icon icon="exclamation-triangle" /> No workers found, <a href="#" onClick={this.add} className="alert-link">add</a> at least one.
+        <Icon icon="exclamation-triangle" /> 没有发现矿工, 点击<a href="#" onClick={this.add} className="alert-link">添加</a> 矿工Worker.
       </div>
     );
   }
@@ -43,10 +43,10 @@ export default class Workers extends React.PureComponent {
           <table className="table table-striped table-hover mb-0">
             <thead>
               <tr>
-                <th className="border-0">Workers <span className="badge badge-dark badge-pill">{workers.keys.length}</span></th>
-                <th className="border-0">Hashrate</th>
-                <th className="border-0">Results</th>
-                <th className="border-0">Pool</th>
+                <th className="border-0">矿工 <span className="badge badge-dark badge-pill">{workers.keys.length}</span></th>
+                <th className="border-0">算力</th>
+                <th className="border-0">状态</th>
+                <th className="border-0">矿池</th>
               </tr>
             </thead>
             <tbody>

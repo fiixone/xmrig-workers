@@ -24,15 +24,15 @@ export default class Edit extends React.PureComponent {
       <div>
         <div className="card mb-3">
           <h5 className="card-header">
-            Edit worker
+            编辑矿工
             <button className="btn btn-danger float-right" onClick={this.handleDelete}><Icon icon="trash-alt" /></button>
-            <button className="btn btn-primary float-right mr-2" onClick={this.handleSubmit}><Icon icon="check" /> Apply</button>
+            <button className="btn btn-primary float-right mr-2" onClick={this.handleSubmit}><Icon icon="check" /> 提交</button>
           </h5>
           <div className="card-body">
 
             <form onSubmit={this.handleSubmit}>
               <div className="form-group">
-                <label htmlFor="url">URL</label>
+                <label htmlFor="url">地址</label>
                 <input
                   type="url"
                   className="form-control autofocus"
@@ -45,7 +45,7 @@ export default class Edit extends React.PureComponent {
               </div>
 
               <div className="form-group mb-2">
-                <label htmlFor="token">Access token</label>
+                <label htmlFor="token">访问令牌</label>
                 <input
                   type="password"
                   className="form-control"
